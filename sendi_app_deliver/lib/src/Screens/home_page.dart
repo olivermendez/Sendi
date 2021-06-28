@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
               ),
               //Sec2
               Padding(
-                padding: const EdgeInsets.only(
+                padding: EdgeInsets.only(
                     top: 25, bottom: 40, right: 18, left: 18),
                 child: Container(
                   child: Text(
@@ -106,4 +106,4 @@ class _HomePageState extends State<HomePage> {
       },
     );
   }
-}
+} 

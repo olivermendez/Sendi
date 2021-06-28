@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:sendi_app_commerce/src/pages/nav_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,14 +11,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Hola"),
-        ),
-        body: Center(
-          child: Text("Hola mmg"),
-        ),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
+        brightness: Brightness.dark,
+        bottomNavigationBarTheme:
+            BottomNavigationBarThemeData(selectedItemColor: Colors.white),
       ),
+      home: NavScreen(),
     );
   }
 }
