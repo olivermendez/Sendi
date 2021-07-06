@@ -9,11 +9,31 @@ class HomePage extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: Color(0xFFfcfcfc),
           title: Text(
-            'Hola Jose',
-            style: TextStyle(color: Colors.black),
+            "Account",
+            style: TextStyle(
+              color: Color(0xFFfc6a26),
+            ),
           ),
+          centerTitle: true,
+          elevation: 0.0,
+          leading: IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.menu,
+              color: Colors.black,
+            ),
+          ),
+          actions: [
+            IconButton(
+              icon: Icon(
+                Icons.access_alarm,
+                color: Colors.black,
+              ),
+              onPressed: () {},
+            )
+          ],
         ),
         body: Container(
           height: MediaQuery.of(context).size.height * 0.25,

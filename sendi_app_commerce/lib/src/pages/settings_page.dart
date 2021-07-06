@@ -29,13 +29,6 @@ class _SettingsPageState extends State<SettingsPage> {
         padding: EdgeInsets.only(left: 16, top: 25, right: 16),
         child: ListView(
           children: [
-            Text(
-              "Settings",
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
-            ),
-            SizedBox(
-              height: 40,
-            ),
             Row(
               children: [
                 Icon(
@@ -59,8 +52,8 @@ class _SettingsPageState extends State<SettingsPage> {
               height: 10,
             ),
             buildAccountOptionRow(context, "Change password"),
-            buildAccountOptionRow(context, "Content settings"),
-            buildAccountOptionRow(context, "Social"),
+            buildAccountOptionRow(context, "Vehicle settings"),
+            buildAccountOptionRow(context, "something new"),
             buildAccountOptionRow(context, "Language"),
             buildAccountOptionRow(context, "Privacy and security"),
             SizedBox(
@@ -95,10 +88,7 @@ class _SettingsPageState extends State<SettingsPage> {
               height: 50,
             ),
             Center(
-              child: OutlineButton(
-                padding: EdgeInsets.symmetric(horizontal: 40),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20)),
+              child: OutlinedButton(
                 onPressed: () {},
                 child: Text("SIGN OUT",
                     style: TextStyle(

@@ -5,19 +5,6 @@ class SendPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        //backgroundColor: Colors.purple,
-        title: Text("New Send"),
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios_new_rounded),
-          onPressed: () {
-            Navigator.pop(context);
-            //HomePage();
-          },
-        ),
-      ),
-    );
+    return Scaffold();
   }
 }
