@@ -50,12 +50,12 @@ class _NavScreenState extends State<NavScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.send_outlined),
             activeIcon: Icon(Icons.send),
-            label: 'New Send',
+            label: 'New Request',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.send_and_archive_rounded),
             activeIcon: Icon(Icons.send_and_archive_sharp),
-            label: 'Sended',
+            label: 'My Requests',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_box_outlined),
