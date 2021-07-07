@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-//import 'package:sendi_app_deliver/src/Screens/home_page.dart';
-import 'package:sendi_app_deliver/src/Screens/welcome_page.dart';
 
 class MyAccount extends StatelessWidget {
   const MyAccount({Key? key}) : super(key: key);
@@ -31,11 +29,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _tabs = <Widget>[
-    WelcomePage(Colors.red),
-    WelcomePage(Colors.blue),
-    WelcomePage(Colors.black),
-  ];
+  static const List<Widget> _tabs = <Widget>[];
 
   void _onItemTapped(int index) {
     setState(() {

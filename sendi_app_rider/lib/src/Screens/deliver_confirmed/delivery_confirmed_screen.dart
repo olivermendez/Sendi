@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class DeliveryConfirmed extends StatelessWidget {
+class DeliveryConfirmedScreen extends StatelessWidget {
   //const HomePage({Key key}) : super(key: key);
 
   @override

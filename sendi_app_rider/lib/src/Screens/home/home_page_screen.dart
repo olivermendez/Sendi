@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:sendi_app_deliver/src/screens/login.dart';
 
-class HomePage extends StatefulWidget {
+class HomePageScreen extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _HomePageScreenState createState() => _HomePageScreenState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageScreenState extends State<HomePageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,8 +35,8 @@ class _HomePageState extends State<HomePage> {
               ),
               //Sec2
               Padding(
-                padding: EdgeInsets.only(
-                    top: 25, bottom: 40, right: 18, left: 18),
+                padding:
+                    EdgeInsets.only(top: 25, bottom: 40, right: 18, left: 18),
                 child: Container(
                   child: Text(
                     "Fastest way to deliver at your\nown convenience.",
@@ -106,4 +106,4 @@ class _HomePageState extends State<HomePage> {
       },
     );
   }
-} 
+}
