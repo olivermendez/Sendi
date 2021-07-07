@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 ThemeData themeRider() {
   return ThemeData(
-    primaryColor: Color(0xFFFE3C5B),
+    primaryColor: Colors.lightBlue,
     primaryColorDark: Color(0xFFFC0028),
     primaryColorLight: Color(0xFFFE9AAA),
     scaffoldBackgroundColor: Colors.white,

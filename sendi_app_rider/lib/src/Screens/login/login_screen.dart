@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:sendi_app_deliver/src/screens/add_card.dart';
+import 'package:sendi_app_deliver/src/Screens/add_card_payments/add_card_screen.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -205,7 +205,7 @@ class _LoginState extends State<Login> {
   //_myOrdersScreenRoute
   Route _myOrdersScreenRoute() {
     return PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) => AddCard(),
+      pageBuilder: (context, animation, secondaryAnimation) => AddCardScreen(),
       transitionDuration: Duration(milliseconds: 200),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         var begin = Offset(1.0, 0.0);

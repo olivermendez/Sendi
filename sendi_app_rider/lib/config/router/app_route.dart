@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sendi_app_deliver/src/Screens/home/home_screen.dart';
 import 'package:sendi_app_deliver/src/Screens/screens.dart';
 
 class AppRouter {
@@ -10,6 +11,8 @@ class AppRouter {
         return WelcomeScreen.route();
       case WelcomeScreen.routeName:
         return WelcomeScreen.route();
+      case HomeScreen.routeName:
+        return HomeScreen.route();
 
       default:
         return _errorRoute();
