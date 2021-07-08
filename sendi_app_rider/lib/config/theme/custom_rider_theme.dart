@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 ThemeData themeRider() {
   return ThemeData(
-    primaryColor: Colors.lightBlue,
+    primaryColor: Colors.lightBlue[900],
     primaryColorDark: Color(0xFFFC0028),
     primaryColorLight: Color(0xFFFE9AAA),
     scaffoldBackgroundColor: Colors.white,
@@ -10,7 +10,7 @@ ThemeData themeRider() {
     fontFamily: 'Futura',
     textTheme: TextTheme(
       headline1: TextStyle(
-        color: Color(0xFF1B070B),
+        color: Colors.white,
         fontWeight: FontWeight.bold,
         fontSize: 36,
       ),

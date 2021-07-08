@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MyAccountScreen extends StatelessWidget {
-  static const String routeName = '/MyAccount';
+  static const String routeName = '/my-account';
 
   static Route route() {
     return MaterialPageRoute(
@@ -15,9 +15,6 @@ class MyAccountScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("MyAccount Screen"),
-      ),
-      body: Center(
-        child: Text("MyAccount Form"),
       ),
     );
   }

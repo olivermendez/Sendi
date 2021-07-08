@@ -5,15 +5,13 @@ class DeliveryConfirmedScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Container(
-          color: Colors.green,
-          child: Center(
-            child: Text(
-              'Delivery Confirmed',
-              style: TextStyle(fontSize: 32.0, color: Colors.white),
-            ),
+    return Scaffold(
+      body: Container(
+        color: Colors.green,
+        child: Center(
+          child: Text(
+            'Delivery Confirmed',
+            style: TextStyle(fontSize: 32.0, color: Colors.white),
           ),
         ),
       ),
