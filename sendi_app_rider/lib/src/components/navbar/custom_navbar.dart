@@ -18,10 +18,10 @@ class _CustomNavBarState extends State<CustomNavBar> {
             Navigator.pushNamed(context, "/home");
             break;
           case 1:
-            Navigator.pushNamed(context, "/my-account");
+            Navigator.pushNamed(context, "/package-sended");
             break;
           case 2:
-            Navigator.pushNamed(context, "/package-sended");
+            Navigator.pushNamed(context, "/my-account");
             break;
         }
       },
@@ -33,13 +33,13 @@ class _CustomNavBarState extends State<CustomNavBar> {
           label: 'Home',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.home_outlined),
-          activeIcon: Icon(Icons.home),
-          label: 'package-sended',
+          icon: Icon(Icons.send_outlined),
+          activeIcon: Icon(Icons.send),
+          label: 'Sended',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.home_outlined),
-          activeIcon: Icon(Icons.home),
+          icon: Icon(Icons.account_circle_outlined),
+          activeIcon: Icon(Icons.account_box_rounded),
           label: 'my-account',
         ),
       ],
