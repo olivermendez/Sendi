@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:sendi_app_commerce/src/pages/profile_page.dart';
-import 'package:sendi_app_commerce/src/pages/home_page.dart';
-import 'package:sendi_app_commerce/src/pages/send_page.dart';
-import 'package:sendi_app_commerce/src/pages/sended_page.dart';
+import 'package:sendi_app_commerce/src/pages/profile/profile_page.dart';
+import 'package:sendi_app_commerce/src/pages/home/home_page.dart';
+import 'package:sendi_app_commerce/src/pages/send/send_page.dart';
+import 'package:sendi_app_commerce/src/pages/sended/sended_page.dart';
 
 class NavScreen extends StatefulWidget {
   NavScreen({Key? key}) : super(key: key);

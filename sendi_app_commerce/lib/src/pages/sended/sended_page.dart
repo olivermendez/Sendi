@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sendi_app_commerce/src/pages/home_page.dart';
-import 'package:sendi_app_commerce/src/pages/package_sended_details.dart';
+import 'package:sendi_app_commerce/src/pages/home/home_page.dart';
+import 'package:sendi_app_commerce/src/pages/package_sended_details/package_sended_details.dart';
 
 class SendedPage extends StatelessWidget {
   //const SendPage({Key? key}) : super(key: key);

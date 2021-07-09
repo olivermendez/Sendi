@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sendi_app_commerce/src/pages/settings_page.dart';
+import 'package:sendi_app_commerce/src/pages/setting_screen/settings_page.dart';
 
 class ProfilePage extends StatefulWidget {
   ProfilePage({Key? key}) : super(key: key);

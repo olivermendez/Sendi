@@ -9,7 +9,7 @@ class WelcomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.blue,
       body: Center(
-        child: Text("Delivery Partner App", style: styleText),
+        child: Text("Delivery app", style: styleText),
       ),
     );
   }
