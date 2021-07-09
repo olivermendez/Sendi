@@ -1,8 +1,27 @@
-# sendi_app_deliver
+# RIDER app
 
 A new Flutter project.
 
-## Getting Started
+## Rider FrontEnd Task
+
+### Screens
+
+- [x] WelcomePage
+- [x] Login
+- [ ] SignUp
+- [ ] Home
+  - [ ] Google Maps Connection
+    - [ ] Picker
+  - [ ] Firebase Connection
+- [ ] Add Payments
+- [ ] Add Vehicle
+- [x] Package Sended
+- [x] Product Details (sended)
+- [x] sending screen
+- [ ] Delivery Confirmed
+- [ ] Select payment Method
+- [ ] My Account
+- [ ] Account Settings
 
 This project is a starting point for a Flutter application.
 

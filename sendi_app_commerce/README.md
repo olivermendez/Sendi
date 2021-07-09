@@ -1,8 +1,27 @@
-# sendi_app_commerce
+# DELIVER app
 
 A new Flutter project.
 
-## Getting Started
+### Deliver FrontEnd Task
+
+### Screens
+
+- [x] WelcomePage
+- [x] Login
+- [x] SignUp
+- [ ] Home
+  - [ ] Google Maps Connection
+    - [ ] Picker
+  - [ ] Firebase Connection
+- [ ] Add Payments
+- [ ] Add Products
+- [ ] Package Sended
+- [ ] Product Details (sended)
+- [ ] Push Event to all Rider
+- [ ] Delivery Confirmed
+- [ ] Select payment Method
+- [ ] My Account
+- [ ] Account Settings
 
 This project is a starting point for a Flutter application.
 
