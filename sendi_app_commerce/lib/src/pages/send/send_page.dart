@@ -5,6 +5,13 @@ class SendPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("New Request Page"),
+      ),
+      body: Center(
+        child: Text("Maps will go here"),
+      ),
+    );
   }
 }
