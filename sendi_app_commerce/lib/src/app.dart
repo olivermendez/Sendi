@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-//import 'package:flutter/services.dart';
-import 'package:sendi_app_commerce/src/pages/login/login_page.dart';
+
 import 'package:sendi_app_commerce/src/components/navbar/nav_screen.dart';
-import 'package:sendi_app_commerce/src/pages/phone_verfication/phone_number_verfication.dart';
+import 'package:sendi_app_commerce/src/pages/pages.dart';
 
 import 'package:sendi_app_commerce/src/pages/welcome/welcome_page.dart';
 
@@ -19,7 +18,7 @@ class MyApp extends StatelessWidget {
             BottomNavigationBarThemeData(selectedItemColor: Colors.red),
       ),
       home: PageView(
-        children: [WelcomePage(), PhoneEntry(), LoginPage(), NavScreen()],
+        children: [WelcomePage(), PhoneEntry(), LoginScreen(), NavScreen()],
       ),
     );
   }
