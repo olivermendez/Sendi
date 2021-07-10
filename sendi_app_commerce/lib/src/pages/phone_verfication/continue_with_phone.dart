@@ -51,10 +51,6 @@ class _ContinueWithPhoneState extends State<ContinueWithPhone> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  SizedBox(
-                    height: 130,
-                    //child: Image.asset('assets/images/holding-phone.png'),
-                  ),
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: 14, horizontal: 64),
                     child: Text(
