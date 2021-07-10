@@ -21,7 +21,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
             Navigator.pushNamed(context, "/package-sended");
             break;
           case 2:
-            Navigator.pushNamed(context, "/my-account");
+            Navigator.pushNamed(context, "/add-vehicle");
             break;
         }
       },
@@ -38,9 +38,9 @@ class _CustomNavBarState extends State<CustomNavBar> {
           label: 'Sended',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.account_circle_outlined),
+          icon: Icon(Icons.car_rental),
           activeIcon: Icon(Icons.account_box_rounded),
-          label: 'my-account',
+          label: 'Add vehicle',
         ),
       ],
     );
