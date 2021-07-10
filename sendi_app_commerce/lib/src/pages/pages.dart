@@ -1,2 +1,2 @@
 export 'login/login_screen.dart';
-export 'phone_verfication/phone_number_verification.dart';
+export 'welcome/welcome_page.dart';
