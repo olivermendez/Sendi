@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sendi_app_deliver/src/components/components.dart';
 
 class ContinueWithPhone extends StatefulWidget {
   //const ContinueWithPhone({Key? key}) : super(key: key);
@@ -18,23 +19,78 @@ class ContinueWithPhone extends StatefulWidget {
 }
 
 class _ContinueWithPhoneState extends State<ContinueWithPhone> {
+  //controllers
   var countryCodeController = TextEditingController(text: '+809');
   var phoneNumberController = TextEditingController();
   String counterText = '0';
-  int limit = 7;
+  phoneNumberAuth(number) {
+    print(number);
+  }
+
+  bool validate = false;
+
+  showAlertDialog(BuildContext context) {
+    AlertDialog alert = AlertDialog(
+      content: Row(
+        children: [
+          CircularProgressIndicator(
+            valueColor:
+                AlwaysStoppedAnimation<Color>(Theme.of(context).primaryColor),
+          ),
+          SizedBox(
+            width: 8,
+          ),
+          Text("Please wait")
+        ],
+      ),
+    );
+
+    showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (BuildContext context) {
+          return alert;
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 5,
-        title: Text("Phone Auth"),
-      ),
-      body: authWithPhone(context),
-    );
+        appBar: AppBar(
+          elevation: 5,
+          title: Text("Phone Auth"),
+        ),
+        body: principalBody(context),
+        bottomNavigationBar: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(12.0),
+            //validar la entrada
+            child: AbsorbPointer(
+              absorbing: validate ? false : true,
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: validate
+                      ? MaterialStateProperty.all(Colors.green)
+                      : MaterialStateProperty.all(Colors.grey),
+                ),
+                onPressed: () {
+                  String number =
+                      '${countryCodeController.text}${phoneNumberController.text}';
+                  showAlertDialog(context);
+
+                  phoneNumberAuth(number);
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Text("Continue"),
+                ),
+              ),
+            ),
+          ),
+        ));
   }
 
-  Widget authWithPhone(context) {
+  Widget principalBody(context) {
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: Column(
@@ -43,7 +99,7 @@ class _ContinueWithPhoneState extends State<ContinueWithPhone> {
           SizedBox(
             height: 40,
           ),
-          avatar(),
+          WelcomeAvatar(),
           SizedBox(
             height: 12,
           ),
@@ -79,6 +135,11 @@ class _ContinueWithPhoneState extends State<ContinueWithPhone> {
       onChanged: (value) {
         setState(() {
           counterText = value.length.toString();
+          if (value.length == 7) {
+            validate = true;
+          } else {
+            validate = false;
+          }
         });
       },
       keyboardType: TextInputType.phone,
@@ -98,18 +159,6 @@ class _ContinueWithPhoneState extends State<ContinueWithPhone> {
       controller: countryCodeController,
       //enabled: false,
       decoration: InputDecoration(labelText: 'Country'),
-    );
-  }
-
-  Widget avatar() {
-    return CircleAvatar(
-      radius: 30,
-      backgroundColor: Colors.white,
-      child: Icon(
-        Icons.moped,
-        color: Colors.blue,
-        size: 60,
-      ),
     );
   }
 }
