@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sendi_app_deliver/src/Screens/welcome/auth_ui.dart';
 
 class WelcomeScreen extends StatelessWidget {
   static const String routeName = '/';
@@ -36,17 +37,7 @@ class WelcomeScreen extends StatelessWidget {
           SizedBox(
             height: 30,
           ),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-                primary: Theme.of(context).primaryColor),
-            child: Text(
-              "Enter",
-              style: _buttonStyle,
-            ),
-            onPressed: () {
-              Navigator.pushNamed(context, '/home');
-            },
-          )
+          AuthUI(),
         ],
       ),
     );

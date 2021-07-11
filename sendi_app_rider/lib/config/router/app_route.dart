@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sendi_app_deliver/src/Screens/add_vehicle/add_vehicle_screen.dart';
+import 'package:sendi_app_deliver/src/Screens/continue_with_phone/continue_with_phone.dart';
 import 'package:sendi_app_deliver/src/Screens/home/home_screen.dart';
 import 'package:sendi_app_deliver/src/Screens/product_details/product_details.screen.dart';
 import 'package:sendi_app_deliver/src/Screens/screens.dart';
@@ -24,6 +25,8 @@ class AppRouter {
         return ProductDetailsScreen.route();
       case AddVehicleScreen.routeName:
         return AddVehicleScreen.route();
+      case ContinueWithPhone.routeName:
+        return ContinueWithPhone.route();
 
       case VehicleManagementScreen.routeName:
         return VehicleManagementScreen.route();

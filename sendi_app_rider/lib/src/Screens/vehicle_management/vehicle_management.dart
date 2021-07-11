@@ -19,17 +19,7 @@ class VehicleManagementScreen extends StatelessWidget {
         title: Text("Vehicle Management"),
       ),
       body: vehicleCard(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(
-          Icons.add,
-          color: Colors.white,
-          size: 29,
-        ),
-        backgroundColor: Colors.blue,
-        elevation: 5,
-        splashColor: Colors.grey,
-      ),
+      floatingActionButton: _customButton(context),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
@@ -50,6 +40,22 @@ class VehicleManagementScreen extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  Widget _customButton(context) {
+    return FloatingActionButton(
+      onPressed: () {
+        Navigator.pushNamed(context, '/add-vehicle');
+      },
+      child: Icon(
+        Icons.add,
+        color: Colors.white,
+        size: 29,
+      ),
+      backgroundColor: Colors.blue,
+      elevation: 5,
+      splashColor: Colors.grey,
     );
   }
 }
