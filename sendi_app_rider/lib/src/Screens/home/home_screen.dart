@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sendi_app_deliver/src/Screens/active_event/active_send.dart';
+import 'package:sendi_app_deliver/src/Screens/package_sended/package_sended_screen.dart';
 import 'package:sendi_app_deliver/src/components/components.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -10,15 +12,44 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  textStyle() {
+    return TextStyle(color: Colors.white, fontSize: 30.0);
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
         appBar: AppBar(
-          centerTitle: false,
-          title: Text('Home Page'),
-          actions: [],
+          title: Text("Home Page"),
+          bottom: TabBar(
+            tabs: <Widget>[
+              Tab(
+                icon: Icon(Icons.verified_user),
+                text: 'Active',
+              ),
+              Tab(
+                icon: Icon(Icons.done_all),
+                text: 'Sended',
+              ),
+              Tab(
+                icon: Icon(Icons.phone_android),
+                text: 'Draft',
+              ),
+            ],
+          ),
         ),
-        drawer: MyDrawer());
+        drawer: MyDrawer(),
+        body: TabBarView(
+          children: <Widget>[
+            MyActivePackage(),
+            PackageSendedScreen(),
+            PackageSendedScreen(),
+          ],
+        ),
+      ),
+    );
     //bottomNavigationBar: CustomNavBar());
   }
 }

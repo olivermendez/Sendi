@@ -4,8 +4,11 @@ Widget titesBuilder() {
   return Flexible(
     child: ListView(
       children: [
-        _createDrawerItem(icon: Icons.moped, text: 'Tus Viajes', onTap: () {}),
-        _createDrawerItem(icon: Icons.credit_card, text: 'Pago', onTap: () {}),
+        _createDrawerItem(icon: Icons.moped, text: 'My Rides', onTap: () {}),
+        _createDrawerItem(
+            icon: Icons.local_activity, text: 'Promotion', onTap: () {}),
+        _createDrawerItem(
+            icon: Icons.credit_card, text: 'My payments', onTap: () {}),
         _createDrawerItem(
             icon: Icons.manage_accounts, text: 'Configuracions', onTap: () {}),
       ],
