@@ -5,6 +5,7 @@ import 'package:sendi_app_deliver/src/components/components.dart';
 class ContinueWithPhone extends StatefulWidget {
   //const ContinueWithPhone({Key? key}) : super(key: key);
 
+  //TODO: https://www.youtube.com/watch?v=BoAMhMMiHtM&list=PLLMOQJG4zQsXxmbUSw9ldGtR23m27FC9R&index=4
   static const String routeName = '/phone-auth';
 
   static Route route() {
@@ -46,7 +47,7 @@ class _ContinueWithPhoneState extends State<ContinueWithPhone> {
     );
 
     showDialog(
-        barrierDismissible: false,
+        //barrierDismissible: false,
         context: context,
         builder: (BuildContext context) {
           return alert;
@@ -76,9 +77,11 @@ class _ContinueWithPhoneState extends State<ContinueWithPhone> {
                 onPressed: () {
                   String number =
                       '${countryCodeController.text}${phoneNumberController.text}';
-                  showAlertDialog(context);
+                  //showAlertDialog(context);
 
                   phoneNumberAuth(number);
+
+                  Navigator.pushNamed(context, '/home');
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),

@@ -14,9 +14,11 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Home Page"),
+          centerTitle: false,
+          title: Text('Home Page'),
+          actions: [],
         ),
-        body: NewEventToSend(),
-        bottomNavigationBar: CustomNavBar());
+        drawer: MyDrawer());
+    //bottomNavigationBar: CustomNavBar());
   }
 }
