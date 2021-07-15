@@ -3,6 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:awesome_card/awesome_card.dart';
 
 class AddCardScreen extends StatelessWidget {
+  static const String routeName = '/add-card';
+  static Route route() {
+    return MaterialPageRoute(
+      builder: (_) => AddCardScreen(),
+      settings: RouteSettings(name: routeName),
+    );
+  }
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {

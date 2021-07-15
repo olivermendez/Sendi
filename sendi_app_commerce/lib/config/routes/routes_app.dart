@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sendi_app_commerce/src/pages/pages.dart';
+import 'package:sendi_app_commerce/src/pages/phone_verfication/continue_with_phone.dart';
 
 class AppRouter {
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
@@ -10,6 +11,8 @@ class AppRouter {
         return WelcomeScreen.route();
       case WelcomeScreen.routeName:
         return WelcomeScreen.route();
+      case ContinueWithPhone.routeName:
+        return ContinueWithPhone.route();
 
       default:
         return _errorRoute();

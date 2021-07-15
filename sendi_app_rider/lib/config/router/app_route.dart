@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sendi_app_deliver/src/Screens/add_card_payments/add_card_screen.dart';
 import 'package:sendi_app_deliver/src/Screens/add_vehicle/add_vehicle_screen.dart';
 import 'package:sendi_app_deliver/src/Screens/continue_with_phone/continue_with_phone.dart';
 import 'package:sendi_app_deliver/src/Screens/home/home_screen.dart';
@@ -30,6 +31,8 @@ class AppRouter {
 
       case VehicleManagementScreen.routeName:
         return VehicleManagementScreen.route();
+      case AddCardScreen.routeName:
+        return AddCardScreen.route();
 
       default:
         return _errorRoute();

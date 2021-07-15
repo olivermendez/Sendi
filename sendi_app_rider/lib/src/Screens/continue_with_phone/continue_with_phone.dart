@@ -24,6 +24,7 @@ class _ContinueWithPhoneState extends State<ContinueWithPhone> {
   var countryCodeController = TextEditingController(text: '+809');
   var phoneNumberController = TextEditingController();
   String counterText = '0';
+
   phoneNumberAuth(number) {
     print(number);
   }
@@ -59,9 +60,14 @@ class _ContinueWithPhoneState extends State<ContinueWithPhone> {
     return Scaffold(
         appBar: AppBar(
           elevation: 5,
-          title: Text("Phone Auth"),
+          title: Text("Continue with phone"),
         ),
-        body: principalBody(context),
+        body: Column(
+          children: [
+            principalBody(context),
+            botton(),
+          ],
+        ),
         bottomNavigationBar: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(12.0),
@@ -163,5 +169,19 @@ class _ContinueWithPhoneState extends State<ContinueWithPhone> {
       //enabled: false,
       decoration: InputDecoration(labelText: 'Country'),
     );
+  }
+
+  Widget botton() {
+    return ElevatedButton(
+        onPressed: () {
+          String number =
+              '${countryCodeController.text}${phoneNumberController.text}';
+          //showAlertDialog(context);
+
+          phoneNumberAuth(number);
+
+          Navigator.pushNamed(context, '/home');
+        },
+        child: Text('Enter'));
   }
 }

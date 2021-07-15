@@ -1,156 +1,173 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sendi_app_commerce/src/components/welcome_avatar/welcome_avatar.dart';
 import 'package:sendi_app_commerce/src/pages/phone_verfication/verifty_phone.dart';
 
-import 'numeric_pad.dart';
-
 class ContinueWithPhone extends StatefulWidget {
+  //const ContinueWithPhone({Key? key}) : super(key: key);
+
+  //TODO: https://www.youtube.com/watch?v=BoAMhMMiHtM&list=PLLMOQJG4zQsXxmbUSw9ldGtR23m27FC9R&index=4
+  static const String routeName = '/phone-auth';
+
+  static Route route() {
+    return MaterialPageRoute(
+      builder: (_) => ContinueWithPhone(),
+      settings: RouteSettings(name: routeName),
+    );
+  }
+
   @override
   _ContinueWithPhoneState createState() => _ContinueWithPhoneState();
 }
 
 class _ContinueWithPhoneState extends State<ContinueWithPhone> {
-  String phoneNumber = "";
+  //controllers
+  var countryCodeController = TextEditingController(text: '+809');
+  var phoneNumberController = TextEditingController();
+  String counterText = '0';
+
+  phoneNumberAuth(number) {
+    print(number);
+  }
+
+  bool validate = false;
+
+  showAlertDialog(BuildContext context) {
+    AlertDialog alert = AlertDialog(
+      content: Row(
+        children: [
+          CircularProgressIndicator(
+            valueColor:
+                AlwaysStoppedAnimation<Color>(Theme.of(context).primaryColor),
+          ),
+          SizedBox(
+            width: 8,
+          ),
+          Text("Please wait")
+        ],
+      ),
+    );
+
+    showDialog(
+        //barrierDismissible: false,
+        context: context,
+        builder: (BuildContext context) {
+          return alert;
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Icon(
-          Icons.close,
-          size: 30,
-          color: Colors.black,
+        appBar: AppBar(
+          elevation: 5,
+          title: Text("Continue with phone"),
         ),
-        title: Text(
-          "Continue with phone",
-          style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          ),
-        ),
-        backgroundColor: Colors.white,
-        elevation: 0,
-        centerTitle: true,
-        textTheme: Theme.of(context).textTheme,
-      ),
-      body: SafeArea(
-          child: Column(
-        children: <Widget>[
-          Expanded(
-            child: Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: <Color>[
-                    Color(0xFFFFFFFF),
-                    Color(0xFFF7F7F7),
-                  ],
+        body: principalBody(context),
+        bottomNavigationBar: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(12.0),
+            //validar la entrada
+            child: AbsorbPointer(
+              absorbing: validate ? false : true,
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: validate
+                      ? MaterialStateProperty.all(Colors.green)
+                      : MaterialStateProperty.all(Colors.grey),
+                ),
+                onPressed: () {
+                  String number =
+                      '${countryCodeController.text}${phoneNumberController.text}';
+                  //showAlertDialog(context);
+
+                  phoneNumberAuth(number);
+
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => VerifyPhone(phoneNumber: number)),
+                  );
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Text("Continue"),
                 ),
               ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.symmetric(vertical: 14, horizontal: 64),
-                    child: Text(
-                      "You'll receive a 4 digit code to verify next.",
-                      style: TextStyle(
-                        fontSize: 22,
-                        color: Color(0xFF818181),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
             ),
           ),
-          Container(
-            height: MediaQuery.of(context).size.height * 0.13,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.all(
-                Radius.circular(25),
-              ),
-            ),
-            child: Padding(
-              padding: EdgeInsets.all(16),
-              child: Row(
-                children: <Widget>[
-                  Container(
-                    width: 230,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          "Enter your phone",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 8,
-                        ),
-                        Text(
-                          phoneNumber,
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  VerifyPhone(phoneNumber: phoneNumber)),
-                        );
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Color(0xFFFFDC3D),
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(15),
-                          ),
-                        ),
-                        child: Center(
-                          child: Text(
-                            "Continue",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+        ));
+  }
+
+  Widget principalBody(context) {
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            height: 40,
           ),
-          NumericPad(
-            onNumberSelected: (value) {
-              setState(() {
-                if (value != -1) {
-                  phoneNumber = phoneNumber + value.toString();
-                } else {
-                  phoneNumber =
-                      phoneNumber.substring(0, phoneNumber.length - 1);
-                }
-              });
-            },
+          WelcomeAvatar(),
+          SizedBox(
+            height: 12,
           ),
+          Text(
+            "Enter your phone",
+            style: TextStyle(fontSize: 30, color: Colors.black),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            "We will send confirmation code to your phone",
+            style: TextStyle(color: Colors.grey, fontSize: 15),
+          ),
+          Row(
+            children: [
+              Expanded(flex: 1, child: countryCodeField(context)),
+              SizedBox(
+                width: 10,
+              ),
+              Expanded(flex: 3, child: phoneNumberField(context)),
+            ],
+          )
         ],
-      )),
+      ),
+    );
+  }
+
+  Widget phoneNumberField(context) {
+    return TextFormField(
+      autofocus: true,
+      maxLength: 7,
+      onChanged: (value) {
+        setState(() {
+          counterText = value.length.toString();
+          if (value.length == 7) {
+            validate = true;
+          } else {
+            validate = false;
+          }
+        });
+      },
+      keyboardType: TextInputType.phone,
+      controller: phoneNumberController,
+      decoration: InputDecoration(
+          contentPadding: EdgeInsets.only(bottom: 22, top: 22),
+          helperMaxLines: 7,
+          counterText: '$counterText / 7',
+          labelText: 'Number',
+          hintText: 'Enter your phone number',
+          hintStyle: TextStyle(fontSize: 13, color: Colors.grey)),
+    );
+  }
+
+  Widget countryCodeField(context) {
+    return TextFormField(
+      controller: countryCodeController,
+      //enabled: false,
+      decoration: InputDecoration(labelText: 'Country'),
     );
   }
 }

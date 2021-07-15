@@ -12,7 +12,7 @@ class VerifyPhone extends StatefulWidget {
 }
 
 class _VerifyPhoneState extends State<VerifyPhone> {
-  String code = "";
+  String code = "32003";
 
   @override
   Widget build(BuildContext context) {
@@ -125,7 +125,7 @@ class _VerifyPhoneState extends State<VerifyPhone> {
                   Expanded(
                     child: GestureDetector(
                       onTap: () {
-                        print("Verify and Create Account");
+                        print("Verify");
                       },
                       child: Container(
                         decoration: BoxDecoration(
