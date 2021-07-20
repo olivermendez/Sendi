@@ -9,7 +9,7 @@ ThemeData themeRider() {
     primaryColorLight: Color(0xFFFE9AAA),
     scaffoldBackgroundColor: Colors.white,
     backgroundColor: Color(0xFFF5F5F5),
-    fontFamily: 'Futura',
+    fontFamily: 'Lato',
     textTheme: TextTheme(
       headline1: TextStyle(
         color: Colors.white,

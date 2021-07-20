@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sendi_app_commerce/src/pages/home/home_page.dart';
 
 import 'numeric_pad.dart';
 
@@ -124,7 +125,11 @@ class _VerifyPhoneState extends State<VerifyPhone> {
                     child: GestureDetector(
                       onTap: () {
                         print("Verified");
-                        Navigator.popAndPushNamed(context, '/home');
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(builder: (context) => HomePage()),
+                          (Route<dynamic> route) => false,
+                        );
                       },
                       child: Container(
                         decoration: BoxDecoration(
