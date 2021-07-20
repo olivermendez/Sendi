@@ -12,7 +12,7 @@ class VerifyPhone extends StatefulWidget {
 }
 
 class _VerifyPhoneState extends State<VerifyPhone> {
-  String code = "32003";
+  String code = "3200";
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,6 @@ class _VerifyPhoneState extends State<VerifyPhone> {
           child: Icon(
             Icons.arrow_back,
             size: 30,
-            color: Colors.black,
           ),
         ),
         title: Text(
@@ -33,10 +32,9 @@ class _VerifyPhoneState extends State<VerifyPhone> {
           style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
-            color: Colors.black,
+            color: Colors.white,
           ),
         ),
-        backgroundColor: Colors.white,
         elevation: 0,
         centerTitle: true,
         textTheme: Theme.of(context).textTheme,
@@ -125,7 +123,8 @@ class _VerifyPhoneState extends State<VerifyPhone> {
                   Expanded(
                     child: GestureDetector(
                       onTap: () {
-                        print("Verify");
+                        print("Verified");
+                        Navigator.popAndPushNamed(context, '/home');
                       },
                       child: Container(
                         decoration: BoxDecoration(
@@ -185,7 +184,7 @@ class _VerifyPhoneState extends State<VerifyPhone> {
             boxShadow: <BoxShadow>[
               BoxShadow(
                   color: Colors.black26,
-                  blurRadius: 25.0,
+                  blurRadius: 5.0,
                   spreadRadius: 1,
                   offset: Offset(0.0, 0.75))
             ],

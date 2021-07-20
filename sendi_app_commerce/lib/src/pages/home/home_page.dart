@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class HomePage extends StatelessWidget {
   static const String routeName = '/home';
@@ -12,32 +13,47 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          title: Text(
-            "Account",
-            style: TextStyle(
-              color: Colors.black,
-            ),
-          ),
-          centerTitle: true,
-          elevation: 0,
-          leading: IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.menu,
-              color: Colors.black,
-            ),
+    return Scaffold(
+        body: Stack(
+      children: [
+        Container(
+          height: MediaQuery.of(context).size.height,
+          width: double.infinity,
+          child: GoogleMap(
+            myLocationButtonEnabled: true,
+            initialCameraPosition:
+                CameraPosition(target: LatLng(10, 10), zoom: 5),
           ),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(24.0),
-          child: Text(
-            "Account Page detail",
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        Positioned(top: 60, left: 20, right: 20, child: LocationSearchBox())
+      ],
+    ));
+  }
+}
+
+class LocationSearchBox extends StatelessWidget {
+  const LocationSearchBox({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextField(
+        decoration: InputDecoration(
+          fillColor: Colors.white,
+          filled: true,
+          hintText: 'Destination Location',
+          suffixIcon: Icon(Icons.search),
+          contentPadding: const EdgeInsets.only(left: 20, bottom: 5, right: 5),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide(color: Colors.white),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide(color: Colors.white),
           ),
         ),
       ),

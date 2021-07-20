@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sendi_app_commerce/src/pages/create_products/create_product_screen.dart';
+import 'package:sendi_app_commerce/src/pages/home/home_page.dart';
 import 'package:sendi_app_commerce/src/pages/pages.dart';
 import 'package:sendi_app_commerce/src/pages/phone_verfication/continue_with_phone.dart';
 
@@ -16,6 +17,8 @@ class AppRouter {
         return ContinueWithPhone.route();
       case CreateProduct.routeName:
         return CreateProduct.route();
+      case HomePage.routeName:
+        return HomePage.route();
 
       default:
         return _errorRoute();
