@@ -72,7 +72,9 @@ class CategoryOptions extends StatelessWidget {
             Icons.kitchen,
             size: 40,
           ),
-          onTap: () {},
+          onTap: () {
+            Navigator.pushNamed(context, '/household-items');
+          },
         ),
         Divider(),
         ListTile(
