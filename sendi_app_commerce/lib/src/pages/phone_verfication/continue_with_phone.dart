@@ -131,7 +131,12 @@ class _ContinueWithPhoneState extends State<ContinueWithPhone> {
               ),
               Expanded(flex: 3, child: phoneNumberField(context)),
             ],
-          )
+          ),
+          TextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/login');
+              },
+              child: Text("Or Login"))
         ],
       ),
     );

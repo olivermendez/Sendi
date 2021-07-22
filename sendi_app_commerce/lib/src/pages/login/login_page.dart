@@ -3,168 +3,109 @@ import 'package:flutter/material.dart';
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
+
+  static const String routeName = '/login';
+
+  static Route route() {
+    return MaterialPageRoute(
+      builder: (_) => LoginPage(),
+      settings: RouteSettings(name: routeName),
+    );
+  }
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final GlobalKey<FormState> _key = GlobalKey<FormState>();
+  bool? _obscurePassword;
+  bool? _autovalidate;
+  TextEditingController? _emailController;
+  TextEditingController? _passwordController;
+
+  @override
+  void initState() {
+    super.initState();
+    _obscurePassword = true;
+    _autovalidate = false;
+    _emailController = TextEditingController();
+    _passwordController = TextEditingController();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: true,
-      body: SingleChildScrollView(
-        child: Container(
-          constraints: BoxConstraints(
-            maxWidth: MediaQuery.of(context).size.width,
-            maxHeight: MediaQuery.of(context).size.height,
-          ),
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Colors.blue,
-                Colors.blue,
-              ],
-              begin: Alignment.topLeft,
-              end: Alignment.centerRight,
-            ),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                flex: 2,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 36.0, horizontal: 24.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Login",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 42.0,
-                          fontWeight: FontWeight.w800,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 5.0,
-                      ),
-                      Text(
-                        "Enter a Beautiful Place",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      )
-                    ],
-                  ),
-                ),
+      appBar: AppBar(
+        title: Text('Login'),
+      ),
+      body: SafeArea(
+        minimum: const EdgeInsets.all(16),
+        child: _buildLoginForm(),
+      ),
+    );
+  }
+
+  Widget _buildLoginForm() {
+    return Form(
+      //autovalidateMode: ,
+      key: _key,
+
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            TextFormField(
+              decoration: InputDecoration(
+                labelText: 'Email',
+                filled: true,
+                isDense: true,
               ),
-              Expanded(
-                flex: 5,
-                child: Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(30.0),
-                        topRight: Radius.circular(30.0),
-                      )),
-                  child: Padding(
-                    padding: const EdgeInsets.all(24.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        TextField(
-                          keyboardType: TextInputType.emailAddress,
-                          decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Color(0xFFE7EDEB),
-                            hintText: "Email",
-                            prefixIcon: Icon(
-                              Icons.mail,
-                              color: Colors.grey[600],
-                            ),
-                            border: OutlineInputBorder(
-                              borderSide: BorderSide.none,
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 20.0,
-                        ),
-                        TextField(
-                          obscureText: true,
-                          decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Color(0xFFE7EDEB),
-                            hintText: "password",
-                            prefixIcon: Icon(
-                              Icons.lock,
-                              color: Colors.grey[600],
-                            ),
-                            border: OutlineInputBorder(
-                              borderSide: BorderSide.none,
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10.0,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              "Forget password",
-                              textAlign: TextAlign.end,
-                              style: TextStyle(
-                                color: Colors.blue[800],
-                                decoration: TextDecoration.underline,
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 50.0,
-                        ),
-                        Container(
-                          width: double.infinity,
-                          child: RaisedButton(
-                            onPressed: () {},
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            color: Colors.blue[600],
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 18.0),
-                              child: Text(
-                                "Login",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 18.0,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 80.0,
-                        ),
-                        Text("Don't have an Account ? register now")
-                      ],
-                    ),
-                  ),
-                ),
-              )
-            ],
-          ),
+              controller: _emailController,
+              keyboardType: TextInputType.emailAddress,
+              autocorrect: false,
+              //validator: _validateEmail,
+            ),
+            SizedBox(
+              height: 12,
+            ),
+            TextFormField(
+              decoration: InputDecoration(
+                labelText: 'Password',
+                filled: true,
+                isDense: true,
+              ),
+              //obscureText: _obscurePassword,
+              controller: _passwordController,
+              //validator: (val) => _validateRequired(val, 'Password'),
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            RaisedButton(
+                color: Theme.of(context).primaryColor,
+                textColor: Colors.white,
+                padding: const EdgeInsets.all(16),
+                shape: new RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(8.0)),
+                child: Text('LOGIN'),
+                onPressed: _validateFormAndLogin),
+          ],
         ),
       ),
     );
+  }
+
+  void _validateFormAndLogin() {
+    // Get form state from the global key
+    var formState = _key.currentState;
+
+    // check if form is valid
+    if (formState!.validate()) {
+      print('Form is valid');
+    } else {
+      // show validation errors
+      // setState forces our [State] to rebuild
+      setState(() {
+        _autovalidate = true;
+      });
+    }
   }
 }
