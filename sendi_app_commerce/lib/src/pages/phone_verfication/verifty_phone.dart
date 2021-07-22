@@ -76,6 +76,8 @@ class _VerifyPhoneState extends State<VerifyPhone> {
                       ],
                     ),
                   ),
+
+                  //Didn't receive code? Request again
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: 14),
                     child: Row(
@@ -114,11 +116,11 @@ class _VerifyPhoneState extends State<VerifyPhone> {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.all(
-                Radius.circular(25),
+                Radius.circular(10),
               ),
             ),
             child: Padding(
-              padding: EdgeInsets.all(16),
+              padding: EdgeInsets.all(20),
               child: Row(
                 children: <Widget>[
                   Expanded(
@@ -133,17 +135,18 @@ class _VerifyPhoneState extends State<VerifyPhone> {
                       },
                       child: Container(
                         decoration: BoxDecoration(
-                          color: Color(0xFFFFDC3D),
+                          color: Colors.green,
                           borderRadius: BorderRadius.all(
-                            Radius.circular(15),
+                            Radius.circular(5),
                           ),
                         ),
                         child: Center(
                           child: Text(
                             "Verify and Create Account",
                             style: TextStyle(
+                              color: Colors.white,
                               fontSize: 18,
-                              fontWeight: FontWeight.bold,
+                              //fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),

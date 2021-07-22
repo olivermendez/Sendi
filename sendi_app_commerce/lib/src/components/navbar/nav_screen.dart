@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:sendi_app_commerce/src/pages/profile/profile_page.dart';
 import 'package:sendi_app_commerce/src/pages/home/home_page.dart';
 import 'package:sendi_app_commerce/src/pages/send/send_page.dart';
-import 'package:sendi_app_commerce/src/pages/sended/sended_page.dart';
 
 class NavScreen extends StatefulWidget {
   NavScreen({Key? key}) : super(key: key);
@@ -17,7 +16,6 @@ class _NavScreenState extends State<NavScreen> {
   final _screens = [
     HomePage(),
     SendPage(),
-    SendedPage(),
     ProfilePage(),
   ];
 

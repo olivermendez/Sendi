@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 ThemeData themeRider() {
   return ThemeData(
     bottomNavigationBarTheme:
-        BottomNavigationBarThemeData(selectedItemColor: Colors.red),
+        BottomNavigationBarThemeData(selectedItemColor: Colors.blue),
     primaryColor: Colors.lightBlue[900],
     primaryColorDark: Color(0xFFFC0028),
     primaryColorLight: Color(0xFFFE9AAA),
-    scaffoldBackgroundColor: Colors.white,
-    backgroundColor: Color(0xFFF5F5F5),
-    fontFamily: 'Lato',
+    //scaffoldBackgroundColor: Colors.white,
+    //backgroundColor: Color(0xFFF5F5F5),
+    //fontFamily: 'Lato',
     textTheme: TextTheme(
       headline1: TextStyle(
         color: Colors.white,

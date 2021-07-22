@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sendi_app_commerce/src/pages/home/home_page.dart';
 import 'package:sendi_app_commerce/src/pages/package_sended_details/package_sended_details.dart';
 
-class SendedPage extends StatelessWidget {
+class MyShipments extends StatelessWidget {
   //const SendPage({Key? key}) : super(key: key);
 
   @override
@@ -10,7 +10,7 @@ class SendedPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         //backgroundColor: Colors.purple,
-        title: Text("Package Sended"),
+        title: Text("My Shipments"),
         elevation: 0,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios_new_rounded),
@@ -20,14 +20,15 @@ class SendedPage extends StatelessWidget {
           },
         ),
       ),
-      body: _builListView(context),
+      body: _builListView(context, 5),
     );
   }
 
-  ListView _builListView(BuildContext context) {
+  ListView _builListView(BuildContext context, int items) {
     final _styleTextSubtitle = TextStyle(fontSize: 13.0);
+
     return ListView.builder(
-      itemCount: 10,
+      itemCount: items,
       itemBuilder: (_, index) {
         return ListTile(
           title: Text("Small Package $index"),
