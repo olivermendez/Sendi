@@ -5,7 +5,7 @@ ThemeData themeRider() {
   return ThemeData(
     bottomNavigationBarTheme:
         BottomNavigationBarThemeData(selectedItemColor: Colors.blue),
-    primaryColor: Colors.lightBlue[900],
+    primaryColor: Colors.cyan[900],
     primaryColorDark: Color(0xFFFC0028),
     primaryColorLight: Color(0xFFFE9AAA),
     //scaffoldBackgroundColor: Colors.white,
