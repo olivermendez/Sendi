@@ -108,7 +108,7 @@ class MyActivePackage extends StatelessWidget {
     );
   }
 
-  Widget PackagesOn(int itemCount, String cardTitle, String cardSubtitle) {
+  Widget packageOn(int itemCount, String cardTitle, String cardSubtitle) {
     return ListView.builder(
         itemCount: itemCount,
         itemBuilder: (context, int index) {
@@ -153,7 +153,7 @@ class MyActivePackage extends StatelessWidget {
         });
   }
 
-  Widget PackagesOff(int itemCount, String cardTitle, String cardSubtitle) {
+  Widget packageOff(int itemCount, String cardTitle, String cardSubtitle) {
     return ListView.builder(
         itemCount: itemCount,
         itemBuilder: (context, int index) {

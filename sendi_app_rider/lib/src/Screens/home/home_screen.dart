@@ -56,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.search),
             activeIcon: Icon(Icons.search),
-            label: 'find',
+            label: 'Find',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.view_list),

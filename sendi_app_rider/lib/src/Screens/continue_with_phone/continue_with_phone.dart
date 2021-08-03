@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sendi_app_deliver/src/Screens/carrierTrailerTypes/carrier_trailer_types.dart';
 import 'package:sendi_app_deliver/src/Screens/home/home_screen.dart';
 import 'package:sendi_app_deliver/src/components/components.dart';
 
@@ -88,11 +89,14 @@ class _ContinueWithPhoneState extends State<ContinueWithPhone> {
 
                   phoneNumberAuth(number);
 
-                  Navigator.pushAndRemoveUntil(
-                    context,
-                    MaterialPageRoute(builder: (context) => HomeScreen()),
-                    (Route<dynamic> route) => false,
-                  );
+                  Navigator.pushNamed(context, '/carrier-trailer-types');
+
+                  //Navigator.pushAndRemoveUntil(
+                  //context,
+                  //MaterialPageRoute(
+                  //builder: (context) => CarrierTrailerTypes()),
+                  //(Route<dynamic> route) => false,
+                  //);
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),

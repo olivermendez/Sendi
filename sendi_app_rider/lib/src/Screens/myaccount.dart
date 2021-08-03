@@ -1,96 +1,111 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 
-class MyAccount extends StatelessWidget {
-  const MyAccount({Key? key}) : super(key: key);
-
-  static const String _title = 'My Account';
-
+class MyAccount extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: _title,
-      home: MyStatefulWidget(),
+  _MyAccountState createState() => _MyAccountState();
+
+  static const String routeName = '/my-account-register';
+
+  static Route route() {
+    return MaterialPageRoute(
+      builder: (_) => MyAccount(),
+      settings: RouteSettings(name: routeName),
     );
   }
 }
 
-/// This is the stateful widget that the main application instantiates.
-class MyStatefulWidget extends StatefulWidget {
-  const MyStatefulWidget({Key? key}) : super(key: key);
+class _MyAccountState extends State<MyAccount> {
+  final GlobalKey<FormState> _key = GlobalKey<FormState>();
+  bool? _obscurePassword;
+  bool? _autovalidate;
+  TextEditingController? _emailController;
+  TextEditingController? _passwordController;
 
   @override
-  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
-}
-
-/// This is the private State class that goes with MyStatefulWidget.
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _tabs = <Widget>[];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+  void initState() {
+    super.initState();
+    _obscurePassword = true;
+    _autovalidate = false;
+    _emailController = TextEditingController();
+    _passwordController = TextEditingController();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My Account'),
+        title: Text('Account Information'),
       ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: const <Widget>[
-            DrawerHeader(
-              decoration: BoxDecoration(color: Colors.blue),
-              child: Text(
-                "Header",
-                style: TextStyle(color: Colors.white, fontSize: 24),
+      body: SafeArea(
+        minimum: const EdgeInsets.all(16),
+        child: _buildLoginForm(),
+      ),
+    );
+  }
+
+  Widget _buildLoginForm() {
+    return Form(
+      //autovalidateMode: ,
+      key: _key,
+
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            TextFormField(
+              decoration: InputDecoration(
+                labelText: 'CREATE A USERNAME',
+                filled: true,
+                isDense: true,
               ),
+              controller: _emailController,
+              keyboardType: TextInputType.emailAddress,
+              autocorrect: false,
+              //validator: _validateEmail,
             ),
-            ListTile(
-              leading: Icon(Icons.message),
-              title: Text('Messages'),
+            SizedBox(
+              height: 12,
             ),
-            ListTile(
-              leading: Icon(Icons.account_circle),
-              title: Text('Profile'),
+            TextFormField(
+              decoration: InputDecoration(
+                labelText: 'PASSWORD',
+                filled: true,
+                isDense: true,
+              ),
+              //obscureText: _obscurePassword,
+              controller: _passwordController,
+              //validator: (val) => _validateRequired(val, 'Password'),
             ),
-            ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Settings'),
+            const SizedBox(
+              height: 16,
             ),
+            RaisedButton(
+                color: Theme.of(context).primaryColor,
+                textColor: Colors.white,
+                padding: const EdgeInsets.all(16),
+                shape: new RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(8.0)),
+                child: Text('Join Sendi Rider'),
+                onPressed: _validateFormAndLogin),
           ],
         ),
       ),
-      body: Center(
-        child: _tabs.elementAt(_selectedIndex),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Business',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
-        onTap: _onItemTapped,
-      ),
     );
+  }
+
+  void _validateFormAndLogin() {
+    // Get form state from the global key
+    var formState = _key.currentState;
+
+    // check if form is valid
+    if (formState!.validate()) {
+      print('Form is valid');
+    } else {
+      // show validation errors
+      // setState forces our [State] to rebuild
+      setState(() {
+        _autovalidate = true;
+      });
+    }
   }
 }
